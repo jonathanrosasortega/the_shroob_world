@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!--CSS personal-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--CSS bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!--Javascript bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <title>Aprendiendo el idioma de símbolos Shroob</title>
+  </head>
+
+  <body>
+    <div class="container bg-info" id="sh"><!--Contenedor principal-->
+      <nav class="navbar navbar-dark bg-dark sticky-top navbar-expand-lg"><!--NAVBAR/Barra de navegación-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavBar" aria-controls="NavBar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="NavBar">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#jumbo">Jumbotron</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tarjetas">Card-Deck</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#imagenes">Imágenes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Form. contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#datos">Mis datos</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Idioma
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="index.html">Español</a>
+                <a class="dropdown-item" href="index_en.html">Inglés</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="index_es_sh.html">Español Shroob</a>
+                <a class="dropdown-item" href="index_en_sh.html">Inglés Shroob</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav><!--FIN NAVBAR/Barra de navegación-->
+
+      <section class="container-fluid p-3" id="jumbo"><!--Jumbotron-->
+        <div class="jumbotron">
+          <h1 class="display-4">¡Ríndete a los Shroobs!</h1>
+          <p class="lead">Los Shroobs son una raza de setas alienígenas que aparecen en el videojuego "Mario y Luigi: Compañeros en el tiempo". Si hay algo que los define es porque hablan en un extraño lenguaje de símbolos, además de querer conquistar un nuevo planeta (Ya que el suyo ha perecido).</p>
+          <hr class="my-4">
+          <p>No es necesaria una traducción de los símbolos Shroob, ya que deberías saberlo.</p>
+          <button type="button" class="btn btn-secondary disabled" data-toggle="modal" data-target="#" aria-disabled="true">
+            Caracteres Shroob
+          </button>
+
+        </div>
+      </section><!--FIN Jumbotron-->
+
+      <section class="container-fluid p-5" id="tarjetas"><!--Card-Deck-->
+        <div class="row"><!--fila1-->
+          <div class="card-group">
+            <div class="card m-1">
+              <img src="img/Princesa.jpg" class="card-img-top" alt="Princesa Shroob">
+              <div class="card-body">
+                <h5 class="card-title">Princesa Shroob</h5>
+                <p class="card-text">Junto a algunos Shroobs</p>
+              </div>
+            </div>
+            <div class="card m-1">
+              <img src="img/Princesa2.png" class="card-img-top" alt="Princesa Shroob Mayor">
+              <div class="card-body">
+                <h5 class="card-title">Princesa Shroob Mayor</h5>
+                <p class="card-text">La hermana mayor de la Princesa Shroob, siendo encerrada en la estrella cobalto.</p>
+              </div>
+            </div>
+            <div class="card m-1">
+              <img src="img/shroob.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Shroob</h5>
+                <p class="card-text">Armado con un blaster láser.</p>
+              </div>
+            </div>
+          </div>
+        </div><!--FIN fila1-->
+        <div class="row"><!--fila2-->
+          <div class="card-group">
+            <div class="card m-1">
+              <img src="img/planeta.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">El planeta Shroob</h5>
+                <p class="card-text">Un lejano planeta con forma de seta morada con lunares blancos.</p>
+              </div>
+            </div>
+            <div class="card m-1">
+              <img src="img/Yoob.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Yoob</h5>
+                <p class="card-text">La versión Shroob de los Yoshis.</p>
+              </div>
+            </div>
+            <div class="card m-1">
+              <img src="img/Shrooboid_rojo.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Shrooboid rojo</h5>
+                <p class="card-text">Un tipo de Shroob, color rojo, con pinchos en la cabeza y muy mala leche.</p>
+              </div>
+            </div>
+          </div>
+        </div><!--FIN fila2-->
+      </section><!--FIN Card-Deck-->
+
+      <section class="container-fluid" id="imagenes"><!--Carrusel de imágenes-->
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10 p-5">
+            <div id="carruselFade" class="carousel slide carousel-fade" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carruselFade" data-slide-to="0" class="active bg-dark"></li>
+                <li data-target="#carruselFade" data-slide-to="1" class="bg-dark"></li>
+                <li data-target="#carruselFade" data-slide-to="2" class="bg-dark"></li>
+                <li data-target="#carruselFade" data-slide-to="3" class="bg-dark"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="img/Vocales.png" class="d-block w-100" alt="Vocales">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-dark">Vocales en lenguaje Shroob.</h5>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="img/consonantes.png" class="d-block w-100" alt="Consonantes">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-dark">Consonantes (Algunas) en lenguaje Shroob.</h5>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="img/Vocales2.png" class="d-block w-100" alt="Vocales2">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-dark">Vocales (Acentuadas) en lenguaje Shroob.</h5>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="img/consonantes2.png" class="d-block w-100" alt="Consonantes2">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="text-dark">Otras consonantes en lenguaje Shroob.</h5>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carruselFade" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+              </a>
+              <a class="carousel-control-next" href="#carruselFade" role="button" data-slide="next">
+                <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+              </a>
+            </div>
+          </div>
+        <div class="col-1"></div>
+      </section><!--FIN Carrusel de imágenes-->
+
+
+      <!--FORMULARIO CONTACTO-->
+      <section class="container-fluid" id="contacto">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10 p-5">
+            <form method="POST" action="mailto:j.rosas.ortega@outlook.com" enctype="multipart/form-data" class="border border-primary rounded p-2">
+              <b>¿Quieres contactar conmigo?</b><br>
+              <div class="form-group"><!--Nombre-->
+                <label for="Textarea">Nombre</label>
+                <input type="text" class="form-control" id="Textarea" placeholder="Introduce aquí tu nombre">
+              </div>
+              <div class="form-group"><!--Email-->
+                <label for="eMail">Tu dirección de Email</label>
+                <input type="email" class="form-control" id="eMail" placeholder="nombre@ejemplo.com">
+                <small id="emailHelp" class="form-text text-muted">Tu dirección de correo será vendida a gangsters coreanos</small>
+              </div>
+              <div class="form-group"><!--Email-->
+                <label for="Password">Contraseña</label>
+                <input type="password" class="form-control" id="Password" placeholder="Escribe aquí una contraseña">
+              </div>
+              <div class="form-group"><!--Texto-->
+                <label for="Textarea">Información</label>
+                <textarea class="form-control" id="Textarea" rows="3" placeholder="¿Qué me quieres preguntar?"></textarea>
+              </div>
+              <b>¿En qué idioma quieres que te responda?</b>
+              <div class="form-check"><!--Selector respuesta-->
+                <input class="form-check-input" type="radio" name="SelectorRespuesta" id="SelectorRespuesta1" value="spanish" checked>
+                <label class="form-check-label" for="SelectorRespuesta1">
+                  Español
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="SelectorRespuesta" id="SelectorRespuesta2" value="english">
+                <label class="form-check-label" for="SelectorRespuesta2">
+                  Inglés
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="SelectorRespuesta" id="SelectorRespuesta3" value="shroob_es">
+                <label class="form-check-label" for="SelectorRespuesta3">
+                  Lenguaje de símbolos Shroob (Español)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="SelectorRespuesta" id="SelectorRespuesta4" value="shroob_en">
+                <label class="form-check-label" for="SelectorRespuesta4">
+                  Lenguaje de símbolos Shroob (Inglés)
+                </label>
+              </div>
+
+              <br>
+              <div class="form-group form-check"><!--Selector TOS-->
+                <input type="checkbox" class="form-check-input" id="CheckButton">
+                <label class="form-check-label" for="exampleCheck1">He leido (Si, ya claro) y acepto las condiciones de privacidad</label>
+              </div><!--FIN Selector TOS-->
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+      </section><!--Fin FORMULARIO CONTACTO-->
+
+      <section class="p-3" id="datos"><!--Apartado informativo-->
+        <section>
+          <div class="container-fluid bg-transparent p-5">
+            <div class="row">
+              <div class="col-md-6 col-sm-12 container-fluid">
+                <dl class="text-left pt-5">
+                  <dt>Dirección:</dt>
+                  <dd>C/ sedeunavez num 25</dd>
+                  <dt>Email:</dt>
+                  <dd>marianorajoy@hotmail.com</dd>
+                  <dt>Teléfono</dt>
+                  <dd>123456789</dd>
+                  <dt>Redes sociales:</dt>
+                  <dd>Twitter: <a href="https://twitter.com/_ju1_">El profe rojo</a> </dd>
+                </dl>
+              </div>
+              <div class=" row col-sm-12 col-md-6 embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.381563929399!2d-4.552515485234295!3d36.7374113799615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f032d3c6922d%3A0xb8312236cf3b29d6!2sCalle+de+Marie+Curie%2C+29590%2C+M%C3%A1laga!5e0!3m2!1ses!2ses!4v1549625655463" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section><!--Fin apartado informativo-->
+
+    </div><!--FIN Contenedor principal-->
+  </body>
+</html>
