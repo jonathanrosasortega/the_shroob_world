@@ -14,7 +14,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
     </script>
@@ -24,7 +23,7 @@
   </head>
 
   <body>
-    <div class="container bg-info"><!--Contenedor principal-->
+    <div class="container bg-info" id="sh"><!--Contenedor principal-->
       <nav class="navbar navbar-dark bg-dark sticky-top navbar-expand-lg"><!--NAVBAR/Barra de navegación-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavBar" aria-controls="NavBar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -71,32 +70,11 @@
           <h1 class="display-4">Surrender to the Shroobs!</h1>
           <p class="lead">Shroobs are a race of aliens, seen on the videogame "Mario and Luigi: Partners in time". A special detail is their strange symbol language they speak, and their wish to conquer another planet (Their own planet was dead).</p>
           <hr class="my-4">
-          <p>Push the next button to see a translation of all Shroob symbols.</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPreview">
+          <p>Translation is not needed, cause you should know the Shroob language.</p>
+          <button type="button" class="btn btn-secondary disabled" data-toggle="modal" data-target="#" aria-disabled="true">
             Shroob translation
           </button>
 
-          <!-- Modal -->
-          <div class="modal fade" id="modalPreview" tabindex="-1" role="dialog" aria-labelledby="Vista preliminar" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="modalPreview">Preview</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="text-center">
-                    <img class="img-fluid" src="img/preview.png" alt="Shroob language">
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div><!--FIN Modal-->
         </div>
       </section><!--FIN Jumbotron-->
 
@@ -128,7 +106,7 @@
         </div><!--FIN fila1-->
         <div class="row"><!--fila2-->
           <div class="card-group">
-            <div class="card m-1">
+            <div class="card">
               <img src="img/planeta.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Shroob's planet</h5>
