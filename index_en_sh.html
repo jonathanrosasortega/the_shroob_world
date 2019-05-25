@@ -14,11 +14,17 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/shroob.js"></script>
     <title>Learning the Shroob's symbol language</title>
   </head>
 
   <body>
-    <div class="container bg-info" id="sh"><!--Contenedor principal-->
+    <div class="container bg-info"><!--Contenedor principal-->
       <nav class="navbar navbar-dark bg-dark sticky-top navbar-expand-lg"><!--NAVBAR/Barra de navegación-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#NavBar" aria-controls="NavBar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -65,11 +71,32 @@
           <h1 class="display-4">Surrender to the Shroobs!</h1>
           <p class="lead">Shroobs are a race of aliens, seen on the videogame "Mario and Luigi: Partners in time". A special detail is their strange symbol language they speak, and their wish to conquer another planet (Their own planet was dead).</p>
           <hr class="my-4">
-          <p>Translation is not needed, cause you should know the Shroob language.</p>
-          <button type="button" class="btn btn-secondary disabled" data-toggle="modal" data-target="#" aria-disabled="true">
+          <p>Push the next button to see a translation of all Shroob symbols.</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPreview">
             Shroob translation
           </button>
 
+          <!-- Modal -->
+          <div class="modal fade" id="modalPreview" tabindex="-1" role="dialog" aria-labelledby="Vista preliminar" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalPreview">Preview</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="text-center">
+                    <img class="img-fluid" src="img/preview.png" alt="Shroob language">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div><!--FIN Modal-->
         </div>
       </section><!--FIN Jumbotron-->
 
@@ -101,7 +128,7 @@
         </div><!--FIN fila1-->
         <div class="row"><!--fila2-->
           <div class="card-group">
-            <div class="card">
+            <div class="card m-1">
               <img src="img/planeta.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Shroob's planet</h5>
@@ -182,20 +209,41 @@
         <div class="row">
           <div class="col-sm-1"></div>
           <div class="col-sm-10 p-5">
-            <form method="POST" action="mailto:j.rosas.ortega@outlook.com" enctype="multipart/form-data" class="border border-primary rounded p-2">
+            <form method="POST" action="mailto:j.rosas.ortega@outlook.com" enctype="multipart/form-data" class="border border-primary rounded p-2" onsubmit="return validar();">
               <b>Want to contact me?</b><br>
               <div class="form-group"><!--Nombre-->
-                <label for="Textarea">Name</label>
-                <input type="text" class="form-control" id="Textarea" placeholder="Set here your name">
+                <label for="Textarea">Name (*)</label>
+                <input type="text" class="form-control" id="TextareaNombre" placeholder="Set here your name" onchange="quitarError('nombreHelp')">
+                <small id="nombreHelp" class="form-text text-danger">Alphanumeric and required field</small>
+              </div>
+              <div class="form-group"><!--Apellidos-->
+                <label for="Textarea">Surname (*)</label>
+                <input type="text" class="form-control" id="TextareaApellidos" placeholder="Set here your surname" onchange="quitarError('apellidosHelp')">
+                <small id="apellidosHelp" class="form-text text-danger">Alphanumeric and required field</small>
               </div>
               <div class="form-group"><!--Email-->
-                <label for="eMail">Email</label>
-                <input type="email" class="form-control" id="eMail" placeholder="name@example.com">
-                <small id="emailHelp" class="form-text text-muted">Your mail and password will be sold to korean gangsters</small>
+                <label for="eMail">Your Email (*)</label>
+                <input type="email" class="form-control" id="eMail" placeholder="name@example.com" onchange="quitarError('emailHelp')">
+                <small id="emailHelp" class="form-text text-danger">Not a valid Email address</small>
               </div>
-              <div class="form-group"><!--Email-->
-                <label for="Password">Password</label>
-                <input type="password" class="form-control" id="Password" placeholder="Set here your password">
+              <div class="form-group"><!--Fecha de nacimiento-->
+                <label for="fechaNacimiento">Your birthdate (*)</label>
+                <input type="date" class="form-control" id="fechaNacimiento" placeholder="dd/mm/yyyy" onchange="quitarError('fechaNacimientoHelp')">
+                <small id="fechaNacimientoHelp" class="form-text text-danger">Required field</small>
+              </div>
+              <div class="form-group">
+                <label for="provincia">Province: (*)</label>
+                <select class="form-control" id="provincia" onchange="quitarError('provinciaHelp')">
+                    <option value="0">--Select province</option>
+                    <option value="1">Cádiz</option>
+                    <option value="2">Málaga</option>
+                    <option value="3">Granada</option>
+                    <option value="4">Almería</option>
+                    <option value="5">Sevilla</option>
+                    <option value="6">Córdoba</option>
+                    <option value="7">Jaén</option>
+                </select>
+                <small id="provinciaHelp" class="form-text text-danger">You must choose a province</small>
               </div>
               <div class="form-group"><!--Texto-->
                 <label for="Textarea">Info</label>
@@ -229,8 +277,55 @@
 
               <br>
               <div class="form-group form-check"><!--Selector TOS-->
-                <input type="checkbox" class="form-check-input" id="CheckButton">
-                <label class="form-check-label" for="exampleCheck1">I've read (Yeah, honest!) and accept the terms of use and privacy policy</label>
+                <input type="checkbox" class="form-check-input" id="aceptarTOS" onchange="quitarError('aceptarTOSHelp')">
+                <label class="form-check-label" for="TOS_check">I've read (Yeah, honest!) and accept the <a href="" data-toggle="modal" data-target="#TOS">terms of use</a> and selling my soul</label>
+                <small id="aceptarTOSHelp" class="form-text text-danger">You must accept the terms of service (And sell your soul)</small>
+                <!-- Modal: Política de confidencialidad -->
+                <div class="modal fade" id="TOS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Terms of service</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <pre>This Agreement sets out the legally binding terms of your use of the Web site and the Service and may be modified by wachiwachi.org at any time and without prior notice, such modifications to be effective upon posting by wachiwachi.org site. This Agreement includes wachiwachi.org acceptable use policy for Content (the "Content") posted or accessed trough the Web site, wachiwachi.org Privacy Policy, and any notices regarding the Web site.
+
+ELIGIBILITY
+
+By using the Web site, you represent and warrant that you have the right, authority, and capacity to enter into this Agreement and to abide by all of the terms and conditions of this Agreement.
+
+TERM
+
+This Agreement will remain in full force and effect while you use the Web site.
+
+NON COMMERCIAL USE BY MEMBERS
+
+wachiwachi.org is intended for the personal use, unauthorized framing of or linking to the Web site will be investigated, and appropriate legal action will be taken, including without limitation, civil, criminal, and injunctive redress. 
+
+COPYRIGHT POLICY
+
+None of information, code, data, text, software, music, sound, photos, pictures, graphics, video, chat, messages, files, or other materials (the "Content") that can be downloaded or accessed by using this site are hosted by this site; this site is not affiliate with the pages that you access.
+You only can use this site to examine your own pages, you acknowledge, warrant and represent that you legally own all intellectual property rights of the content that you download or access using this service.
+You may not post, distribute, or reproduce in any way any copyrighted material, trademarks, or other proprietary information without obtaining the prior written consent of the owner of such proprietary rights.
+You are solely responsible for the content that you download or access using this service.
+
+PRIVACY
+
+Use of the Web site and/or the Service is also governed by our Privacy Policy.</pre>
+
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
               </div><!--FIN Selector TOS-->
               <button type="submit" class="btn btn-primary">Send</button>
             </form>
