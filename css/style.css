@@ -1,6 +1,6 @@
 @font-face {
       font-family: shroob_symbol;
-      src: url(../fonts/Shroob-Font.ttf);}
+      src: url(../fonts/Shroob-Font.ttf) ;}
 
 #sh {
   font-family: shroob_symbol;
@@ -9,3 +9,5 @@
 body{
   background-color: rgba(155, 255, 255, 0.5) !important;
 }
+
+small{visibility:hidden;}
