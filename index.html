@@ -14,6 +14,12 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/shroob.js"></script>
     <title>Aprendiendo el idioma de símbolos Shroob</title>
   </head>
 
@@ -203,20 +209,41 @@
         <div class="row">
           <div class="col-sm-1"></div>
           <div class="col-sm-10 p-5">
-            <form method="POST" action="mailto:j.rosas.ortega@outlook.com" enctype="multipart/form-data" class="border border-primary rounded p-2">
+            <form method="POST" action="mailto:j.rosas.ortega@outlook.com" enctype="multipart/form-data" class="border border-primary rounded p-2" onsubmit="return validar();">
               <b>¿Quieres contactar conmigo?</b><br>
               <div class="form-group"><!--Nombre-->
-                <label for="Textarea">Nombre</label>
-                <input type="text" class="form-control" id="Textarea" placeholder="Introduce aquí tu nombre">
+                <label for="Textarea">Nombre (*)</label>
+                <input type="text" class="form-control" id="TextareaNombre" placeholder="Introduce aquí tu nombre" onchange="quitarError('nombreHelp')">
+                <small id="nombreHelp" class="form-text text-danger">Campo alfanumérico y obligatorio</small>
+              </div>
+              <div class="form-group"><!--Apellidos-->
+                <label for="Textarea">Apellidos (*)</label>
+                <input type="text" class="form-control" id="TextareaApellidos" placeholder="Introduce aquí tus apellidos" onchange="quitarError('apellidosHelp')">
+                <small id="apellidosHelp" class="form-text text-danger">Campo alfanumérico y obligatorio</small>
               </div>
               <div class="form-group"><!--Email-->
-                <label for="eMail">Tu dirección de Email</label>
-                <input type="email" class="form-control" id="eMail" placeholder="nombre@ejemplo.com">
-                <small id="emailHelp" class="form-text text-muted">Tu dirección de correo será vendida a gangsters coreanos</small>
+                <label for="eMail">Tu dirección de Email (*)</label>
+                <input type="email" class="form-control" id="eMail" placeholder="nombre@ejemplo.com" onchange="quitarError('emailHelp')">
+                <small id="emailHelp" class="form-text text-danger">email no válido</small>
               </div>
-              <div class="form-group"><!--Email-->
-                <label for="Password">Contraseña</label>
-                <input type="password" class="form-control" id="Password" placeholder="Escribe aquí una contraseña">
+              <div class="form-group"><!--Fecha de nacimiento-->
+                <label for="fechaNacimiento">Tu fecha de nacimiento (*)</label>
+                <input type="date" class="form-control" id="fechaNacimiento" placeholder="dd/mm/yyyy" onchange="quitarError('fechaNacimientoHelp')">
+                <small id="fechaNacimientoHelp" class="form-text text-danger">Campo obligatorio</small>
+              </div>
+              <div class="form-group">
+                <label for="provincia">Provincia: (*)</label>
+                <select class="form-control" id="provincia" onchange="quitarError('provinciaHelp')">
+                    <option value="0">--Elija provincia</option>
+                    <option value="1">Cádiz</option>
+                    <option value="2">Málaga</option>
+                    <option value="3">Granada</option>
+                    <option value="4">Almería</option>
+                    <option value="5">Sevilla</option>
+                    <option value="6">Córdoba</option>
+                    <option value="7">Jaén</option>
+                </select>
+                <small id="provinciaHelp" class="form-text text-danger">Debe elegir una provincia</small>
               </div>
               <div class="form-group"><!--Texto-->
                 <label for="Textarea">Información</label>
@@ -250,8 +277,55 @@
 
               <br>
               <div class="form-group form-check"><!--Selector TOS-->
-                <input type="checkbox" class="form-check-input" id="CheckButton">
-                <label class="form-check-label" for="exampleCheck1">He leido (Si, ya claro) y acepto las condiciones de privacidad</label>
+                <input type="checkbox" class="form-check-input" id="aceptarTOS" onchange="quitarError('aceptarTOSHelp')">
+                <label class="form-check-label" for="TOS_check">He leido (Si, ya claro) y acepto la <a href="" data-toggle="modal" data-target="#TOS">política de confidencialidad</a> y vendo mi alma</label>
+                <small id="aceptarTOSHelp" class="form-text text-danger">Debe aceptar la política de confidencialidad (Y vender su alma)</small>
+                <!-- Modal: Política de confidencialidad -->
+                <div class="modal fade" id="TOS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Política de confidencialidad</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <pre>This Agreement sets out the legally binding terms of your use of the Web site and the Service and may be modified by wachiwachi.org at any time and without prior notice, such modifications to be effective upon posting by wachiwachi.org site. This Agreement includes wachiwachi.org acceptable use policy for Content (the "Content") posted or accessed trough the Web site, wachiwachi.org Privacy Policy, and any notices regarding the Web site.
+
+ELIGIBILITY
+
+By using the Web site, you represent and warrant that you have the right, authority, and capacity to enter into this Agreement and to abide by all of the terms and conditions of this Agreement.
+
+TERM
+
+This Agreement will remain in full force and effect while you use the Web site.
+
+NON COMMERCIAL USE BY MEMBERS
+
+wachiwachi.org is intended for the personal use, unauthorized framing of or linking to the Web site will be investigated, and appropriate legal action will be taken, including without limitation, civil, criminal, and injunctive redress. 
+
+COPYRIGHT POLICY
+
+None of information, code, data, text, software, music, sound, photos, pictures, graphics, video, chat, messages, files, or other materials (the "Content") that can be downloaded or accessed by using this site are hosted by this site; this site is not affiliate with the pages that you access.
+You only can use this site to examine your own pages, you acknowledge, warrant and represent that you legally own all intellectual property rights of the content that you download or access using this service.
+You may not post, distribute, or reproduce in any way any copyrighted material, trademarks, or other proprietary information without obtaining the prior written consent of the owner of such proprietary rights.
+You are solely responsible for the content that you download or access using this service.
+
+PRIVACY
+
+Use of the Web site and/or the Service is also governed by our Privacy Policy.</pre>
+
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
               </div><!--FIN Selector TOS-->
               <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
